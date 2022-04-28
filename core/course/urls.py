@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('course/', views.CourseListView.as_view({'get': 'sort_course_by_request_parameter'})),
+    path('course/', views.CourseListView.as_view({'get': 'sort_course_by_request_parameter'}), name='course'),
     path('course/detail/<str:slug>/', views.CourseDetailView.as_view()),
     path('course/my-courses/', views.UserCourses.as_view({'get': 'students_courses'})),
     path('course/new/', views.CourseCreateView.as_view()),
