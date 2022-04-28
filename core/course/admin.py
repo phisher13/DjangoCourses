@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Category
+from .models import Course
 
 
 @admin.register(Course)
@@ -11,6 +11,3 @@ class CourseAdmin(admin.ModelAdmin):
     @staticmethod
     def students_quantity(obj):
         return obj.students.all().count()
-
-
-admin.site.register(Category)
