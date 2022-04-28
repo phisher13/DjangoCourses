@@ -14,10 +14,10 @@ class CourseDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        exclude = ('students',)
+        exclude = ('students', 'files', 'id', 'date')
 
 
 class CourseCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        exclude = ('students',)
+        exclude = ('students', 'files', 'id', 'date')
