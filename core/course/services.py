@@ -30,9 +30,9 @@ def sort_by_price(request):
 def sort_by_date(request):
     parameter = request.GET.get('date')
 
-    if parameter in ['newest', 'newest/']:
+    if parameter in ['oldest', 'oldest/']:
         queryset = Course.objects.order_by('date')
-    elif parameter in ['oldest', 'oldest/']:
+    elif parameter in ['newest', 'newest/']:
         queryset = Course.objects.order_by('-date')
     else:
         queryset = Course.objects.all()
