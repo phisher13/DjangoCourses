@@ -42,7 +42,7 @@ class JoinStudentToCourse(ViewSet):
 
 
 class DownloadCoursesFile(ViewSet):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     @staticmethod
     def download_courses_file(request, slug):
@@ -50,7 +50,7 @@ class DownloadCoursesFile(ViewSet):
 
 
 class RemoveStudentFromCourse(ViewSet):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     @staticmethod
     def remove_student_from_course(request, slug):
