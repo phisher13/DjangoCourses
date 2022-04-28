@@ -7,7 +7,7 @@ from .serializers import CourseSerializer
 
 
 def request_without_parameter():
-    queryset = Course.objects.all().values('title', 'type', 'category', 'price')
+    queryset = Course.objects.all()
     serializer = CourseSerializer(queryset, many=True)
     return Response(serializer.data)
 
@@ -16,11 +16,11 @@ def sort_by_price(request):
     parameter = request.GET.get('price')
 
     if parameter in ['lowest', 'lowest/']:
-        queryset = Course.objects.order_by('price').values('title', 'type', 'category', 'price')
+        queryset = Course.objects.order_by('price')
     elif parameter in ['highest', 'highest/']:
-        queryset = Course.objects.order_by('-price').values('title', 'type', 'category', 'price')
+        queryset = Course.objects.order_by('-price')
     else:
-        queryset = Course.objects.all().values('title', 'type', 'category', 'price')
+        queryset = Course.objects.all()
 
     serializer = CourseSerializer(queryset, many=True)
 
@@ -32,11 +32,11 @@ def sort_by_popularity(request):
 
     if parameter in ['up', 'up/']:
         queryset = Course.objects.annotate(quantity=Count('students'))\
-                                    .order_by('quantity').values('title', 'type', 'category', 'price')
+                                    .order_by('quantity')
 
     elif parameter in ['down', 'down/']:
         queryset = Course.objects.annotate(quantity=Count('students'))\
-                                    .order_by('-quantity').values('title', 'type', 'category', 'price')
+                                    .order_by('-quantity')
     else:
         queryset = Course.objects.values('title', 'type', 'category', 'price')
 
@@ -56,7 +56,7 @@ def sort_by_parameter(request):
 
 
 def choose_student_by_id(request):
-    queryset = Course.objects.filter(students__id=request.user.pk).values('title', 'type', 'category', 'price')
+    queryset = Course.objects.filter(students__id=request.user.pk)
     serializer = CourseSerializer(queryset, many=True)
     return Response(serializer.data)
 
