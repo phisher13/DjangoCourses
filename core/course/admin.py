@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+from core.course.models import Course, Category
+
+
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'description', 'price', 'type', 'category', 'students_quantity')
+
+    @staticmethod
+    def students_quantity(obj):
+        return obj.students.all().count()
+
+
+admin.site.register(Category)
