@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # 3rd part apps
     'rest_framework',
+    'drf_yasg',
 
 ]
 
