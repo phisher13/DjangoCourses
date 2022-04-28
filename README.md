@@ -108,3 +108,34 @@ http://localhost:8000/api/v1/course/update/<slug>/
 ```
 http://localhost:8000/api/v1/course/delete/<slug>/
 ```
+<hr/>
+
+### Structure:
+
+```
+core
++---core
+¦   ¦   __init__.py
+¦   ¦   asgi.py
+¦   ¦   settings.py
+¦   ¦   urls.py
+¦   ¦   wsgi.py
++---course
+¦    +   migrations
+¦    ¦   ¦    __init__.py
+¦    +   tests
+¦    ¦   ¦   __init__.py
+¦    ¦   ¦   test_serializers.py
+¦    ¦   ¦   test_urls.py
+¦    ¦   __init__.py
+¦    ¦   admin.py
+¦    ¦   apps.py
+¦    ¦   models.py
+¦    ¦   serializers.py
+¦    ¦   services.py
+¦    ¦   urls.py
+¦    ¦   view.py
+     manage.py
+README.md
+requirements.txt
+```
