@@ -6,18 +6,12 @@ TYPE_CHOICES = (
     ('offline', 'OFFLINE')
 )
 
-
-class Category(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-
-    class Meta:
-        db_table = 'categories'
-        ordering = ['id']
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
-
-    def __str__(self):
-        return self.name
+CATEGORY_CHOICES = (
+    ('programming', 'PROGRAMMING'),
+    ('games', 'GAMES'),
+    ('design', 'DESIGN'),
+    ('marketing', 'MARKETING')
+)
 
 
 class Course(models.Model):
@@ -31,7 +25,10 @@ class Course(models.Model):
                             )
     price = models.IntegerField()
     files = models.FileField(upload_to=f'courses/{title.name}')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.CharField(choices=CATEGORY_CHOICES,
+                                default=None,
+                                null=False,
+                                max_length=255)
     students = models.ManyToManyField(User, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
