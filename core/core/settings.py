@@ -45,6 +45,8 @@ INSTALLED_APPS = [
 
     # 3rd part apps
     'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework.authtoken',
     'drf_yasg',
 
 ]
