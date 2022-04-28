@@ -27,16 +27,31 @@ def sort_by_price(request):
     return Response(serializer.data)
 
 
+def sort_by_date(request):
+    parameter = request.GET.get('date')
+
+    if parameter in ['newest', 'newest/']:
+        queryset = Course.objects.order_by('date')
+    elif parameter in ['oldest', 'oldest/']:
+        queryset = Course.objects.order_by('-date')
+    else:
+        queryset = Course.objects.all()
+
+    serializer = CourseSerializer(queryset, many=True)
+
+    return Response(serializer.data)
+
+
 def sort_by_popularity(request):
     parameter = request.GET.get('popularity')
 
     if parameter in ['up', 'up/']:
-        queryset = Course.objects.annotate(quantity=Count('students'))\
-                                    .order_by('quantity')
+        queryset = Course.objects.annotate(quantity=Count('students')) \
+            .order_by('quantity')
 
     elif parameter in ['down', 'down/']:
-        queryset = Course.objects.annotate(quantity=Count('students'))\
-                                    .order_by('-quantity')
+        queryset = Course.objects.annotate(quantity=Count('students')) \
+            .order_by('-quantity')
     else:
         queryset = Course.objects.values('title', 'type', 'category', 'price')
 
@@ -52,6 +67,8 @@ def sort_by_parameter(request):
             return sort_by_price(request)
         elif parameter == 'popularity':
             return sort_by_popularity(request)
+        elif parameter == 'date':
+            return sort_by_date(request)
     return request_without_parameter()
 
 
