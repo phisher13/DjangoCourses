@@ -8,6 +8,7 @@
 - Download a course files;
 - Display list of student's courses;
 - JWT Authentication;
+- Database transaction;
 - Create/Update/Delete course (only for admin);
 - Test coverage;
 - API Documentation;
@@ -107,6 +108,10 @@ http://localhost:8000/api/v1/course/update/<slug>/
 - Delete course (DELETE) (only admin)
 ```
 http://localhost:8000/api/v1/course/delete/<slug>/
+```
+- Swagger
+```
+http://localhost:8000/api/v1/swagger/
 ```
 <hr/>
 
