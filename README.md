@@ -21,10 +21,13 @@
 <hr/>
 
 ### Installation:
-1. Create & activate venv
-2. Install requirements.txt
+1. Change directory to 'core'
 ```python
-pip install -r requirements.txt
+cd core
+```
+2. Build docker image
+```python
+docker-compose up
 ```
 3. Change **.env** file
 ````dotenv
@@ -36,20 +39,11 @@ DB_PASS=
 DB_HOST=
 DB_PORT=
 ````
-4. Make migrations
-```python
-python manage.py makemigrations
-python manage.py migrate
-```
-5. Run application
-```python
-python manage.py runsever
-```
-6. Run tests
+4. Run tests
 ```
 python manage.py test .
 ```
-7. Check test coverage
+5. Check test coverage
 ```python
 coverage run --source='.' python manage.py test .
 coverage report
