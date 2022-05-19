@@ -11,12 +11,14 @@
 - Database transaction;
 - Create/Update/Delete course (only for admin);
 - Test coverage;
+- Containerizing;
 - API Documentation;
 
 ### Stack:
 - Python
-- Django Rest
-- Postgresql
+- DjangoRest
+- PostgreSQL
+- Docker
 
 <hr/>
 
