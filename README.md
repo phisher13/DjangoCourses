@@ -1,4 +1,4 @@
-# GeekCourses is an educational platform where everybody can learn something new 💻​📕​
+# 'GeekCourses' is an educational platform where everybody can learn something new 💻​📕​
 <hr/>
 
 ### App features:
