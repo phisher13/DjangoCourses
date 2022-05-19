@@ -1,4 +1,4 @@
-# Django Course is an educational platform where everybody can learn something new 💻​📕​
+# 'GeekCourses' is an educational platform where everybody can learn something new 💻​📕​
 <hr/>
 
 ### App features:
@@ -11,12 +11,14 @@
 - Database transaction;
 - Create/Update/Delete course (only for admin);
 - Test coverage;
+- Containerizing;
 - API Documentation;
 
 ### Stack:
 - Python
-- Django Rest
-- Postgresql
+- DjangoRest
+- PostgreSQL
+- Docker
 
 <hr/>
 
